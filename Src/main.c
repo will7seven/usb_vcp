@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -157,7 +157,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void  CDC_ReceivedCallback(uint8_t* Buf, uint32_t Len)
+{
+	CDC_Transmit_FS(Buf, Len);
+}
 /* USER CODE END 4 */
 
 /**
